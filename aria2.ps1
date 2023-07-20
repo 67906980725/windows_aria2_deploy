@@ -32,6 +32,8 @@ function auto_start {
 
   # 添加到自启动
   Copy-Item -Path $l_file -Destination $AUTO_START_PATH -Force  
+
+  Start-Process -FilePath $install_dir\aria2c.lnk
 }
 
 function cron {
@@ -72,7 +74,8 @@ function update_bt_tracker {
     }
   } | Set-Content "$CRON_PATH\update_bt_tracker.ps1"
   
-  Start-Process -FilePath $install_dir\update_bt_tracker.lnk
+  # Start-Process -FilePath $install_dir\update_bt_tracker.lnk
+  Start-Process -FilePath $SCRIPT_PATH\cron.lnk
 }
 
 function install_aria_ng {
@@ -87,6 +90,8 @@ function install_aria_ng {
   Expand-Archive -Force -Path $DOWN_PATH\$ng_f_name -DestinationPath $aria_ng_dir
   Remove-Item $DOWN_PATH\$ng_f_name -Force
   Rename-Item -Path $aria_ng_dir\index.html -NewName aria_ng.html -Force
+
+  explorer $aria_ng_dir\aria_ng.html
 }
 
 install
