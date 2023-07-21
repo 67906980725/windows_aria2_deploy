@@ -1,5 +1,5 @@
-# https://github.com/oze4/New-PSService
-
+# todo https://github.com/oze4/New-PSService
+# 失败的尝试
 function Verify-Elevated {
   # Get the ID and security principal of the current user account
   $myIdentity=[System.Security.Principal.WindowsIdentity]::GetCurrent()
