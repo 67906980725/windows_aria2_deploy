@@ -1,5 +1,5 @@
-# 一天更新一次
-$seconds = 86400
+# 30分执行一次
+$seconds = 1800
 $cnt = $args[0]
 
 function task() {
